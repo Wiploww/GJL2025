@@ -574,7 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a3f06737f94ea4788333807ce16da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backupTxt: []
   Text: {fileID: 1818990621}
+  maxChars: 68
 --- !u!1 &404187645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 3
+  canMove: 1
 --- !u!212 &726954729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3707,6 +3710,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2090859829}
     m_Modifications:
+    - target: {fileID: 2541081971823297131, guid: c6e5243345072b343927325f5b19a231, type: 3}
+      propertyPath: text
+      value: 'Ants. Bat. Cow. Dog. Emu. Fox. Gnat. Horse. Iguana. Jackal. Kangaroo.
+        Llama. Man. '
+      objectReference: {fileID: 0}
     - target: {fileID: 2541081971823297131, guid: c6e5243345072b343927325f5b19a231, type: 3}
       propertyPath: Canvas
       value: 

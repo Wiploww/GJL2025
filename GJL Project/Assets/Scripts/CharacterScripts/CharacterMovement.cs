@@ -5,6 +5,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     Rigidbody2D rb;
     public float playerSpeed = 2;
+    public bool canMove = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,7 +15,10 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (canMove)
+        {
+            Movement();
+        }
     }
 
     void Movement()

@@ -13,7 +13,7 @@ public class InteractObjScript : MonoBehaviour
     public GameObject Canvas;
     private GameObject Player;
     private GameObject PressE;
-    private bool canTrigger=false;
+    public bool canTrigger=false;
     void Start()
     {
         PressE = this.transform.GetChild(0).gameObject;
@@ -28,10 +28,12 @@ public class InteractObjScript : MonoBehaviour
         {
             Canvas.SetActive(true);
             Canvas.GetComponent<DialougeCanvas>().ChangeTxt(text);
+            canTrigger = false;
+            PressE?.SetActive(false);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
