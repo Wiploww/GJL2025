@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8dd87226e356ac1429383cba3865feb8
+guid: 35107350db73bb04bb8576a74c99e8d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -200225207187683820
-    second: guyWip_0
+      213: -4770475168694588676
+    second: guyWipBackLF_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: guyWip_0
+      name: guyWipBackLF_0
       rect:
         serializedVersion: 2
-        x: 98
-        y: 9
-        width: 204
-        height: 390
+        x: 49
+        y: 1
+        width: 102
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 416cf722c38a83df0800000000000000
-      internalID: -200225207187683820
+      spriteID: cfa2320fb1edbcdb0800000000000000
+      internalID: -4770475168694588676
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      guyWip_0: -200225207187683820
+      guyWipBackLF_0: -4770475168694588676
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

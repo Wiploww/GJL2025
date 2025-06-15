@@ -15,6 +15,7 @@ public class DialougeCanvas : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Paul");
+        Player.gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0,0);
         
     }
 
