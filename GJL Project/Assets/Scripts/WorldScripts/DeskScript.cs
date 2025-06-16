@@ -1,23 +1,21 @@
 using UnityEngine;
 
-public class DoorScript : MonoBehaviour
+public class DeskScript :MonoBehaviour 
 {
-    //HOW TO USE:
-    //Place into Scene where you want there to be a door
-    //Move the MoveToOBJ that is a child of the door object to where you want the door to lead to
-    //Move the PressE object that is also a child of the door object to be somewhere around to door
-    //To use doors, stand on them and then press E
-
-    private  GameObject MoveTo;
+    private GameObject MoveTo;
     private Vector3 MoveToPos;
-    public bool canTP=false;
+    public bool canTP = false;
     private GameObject Player;
     private GameObject PressE;
+
+    private CircleCollider2D CircleCollider2D;
+    private BoxCollider2D BoxCollider2D;
+
     void Start()
     {
-        MoveTo= this.transform.GetChild(0).gameObject;
+        MoveTo = this.transform.GetChild(0).gameObject;
         MoveToPos = MoveTo.transform.position;
-        PressE=this.transform.GetChild(1).gameObject;
+        PressE = this.transform.GetChild(1).gameObject;
         PressE.SetActive(false);
     }
 
@@ -32,7 +30,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-     
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -53,6 +51,4 @@ public class DoorScript : MonoBehaviour
             canTP = false;
         }
     }
-
-  
 }
