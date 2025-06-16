@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class DeskScript :MonoBehaviour 
 {
+    //How to Use:
+    //Works exactly like the door script, the only difference is that in every desk object there are two doors
+    //the child named Up deals with moving the player up onto the desk and down moving the player off of the desk
+    //If making a scinero where the player jumps on a variety of desks like stairs change where the triggers are on both up and down
+
     private GameObject MoveTo;
     private Vector3 MoveToPos;
     public bool canTP = false;
