@@ -34,13 +34,20 @@ public class TestGameManager : MonoBehaviour
     public void BeginSurvey()
     {
         //pause or reset the game behind the scenes
-
+        if (roundCounter == 1)
+        {
+            survey1.SetActive(true);
+        }
+        else if (roundCounter == 2)
+        {
+            survey2.SetActive(true);
+        }
     }
 
     public void NextRound()
     {
         CheckSurveyInput();
-
+        CloseSurveys();
         roundCounter++;
     }
 
@@ -108,5 +115,11 @@ public class TestGameManager : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    void CloseSurveys()
+    {
+        survey1.SetActive(false);
+        survey2.SetActive(false);
     }
 }
