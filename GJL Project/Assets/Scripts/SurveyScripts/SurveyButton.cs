@@ -17,7 +17,7 @@ public class SurveyButton : Button
     {
         base.OnPointerClick(eventData);
         selected = true;
-        image.color = Color.yellow;
+        image.color = Color.cyan;
         GetComponent<ButtonSignals>().sendSignal();
     }
 
