@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    int roundCounter;
+    public int roundCounter;
 
     [SerializeField] GameObject player;
     Vector3 playerStartPos;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     bool sureAboutGoblins = true; //corresponding question only shows up if addGoblins is false; codes 35 and 23
 
     //survey 4 bools
-    bool canBribe; //code 41
+    public bool canBribe; //code 41
     bool canHack; //code 42
     bool cactusHeight = true; //true makes cactus taller, false makes it wider; codes 43 and 44
     // reuse shouldThisQuestionShowUp variable?
