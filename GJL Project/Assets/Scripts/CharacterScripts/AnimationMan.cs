@@ -16,19 +16,14 @@ public class AnimationMan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        if (rb.linearVelocity.x > 0 )
-        {
+      RegularAnimations();
 
-            //animator.SetBool("LeftWalk", true);
+       
+       
+    }
 
-        }
-        if (rb.linearVelocity.x < 0)
-        {
-
-            //animator.SetBool("RightWalk", true);
-        }
-
+    void RegularAnimations()
+    {
         if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("BackwardWalk", true);
@@ -51,30 +46,27 @@ public class AnimationMan : MonoBehaviour
 
         }
 
-        /*  if (rb.linearVelocity.y > 0)
-          {
+        if (Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("RightWalk", true);
+        }
 
-              Debug.Log("Back");
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            animator.SetBool("RightWalk", false);
 
-              animator.SetBool("BackwardWalk", true);
-          }
+        }
 
-          if  (rb.linearVelocity.y<0)
-          {
-              Debug.Log("Front");
-              animator.SetBool("ForwardWalk", true);
-          }
+        if (Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("LeftWalk", true);
+        }
 
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            animator.SetBool("LeftWalk", false);
 
-          if(rb.linearVelocity.y == 0)
-          {
-              Debug.Log("None");
-              animator.SetBool("ForwardWalk", false);
-              animator.SetBool("BackwardWalk", false);
-
-          }
-      */
+        }
     }
-
 }
 
