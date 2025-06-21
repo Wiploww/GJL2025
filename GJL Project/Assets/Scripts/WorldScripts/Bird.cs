@@ -5,7 +5,7 @@ public class Bird : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private GameObject MoveTo;
     private GameObject Player;
-    private GameObject PressE;
+    public GameObject PressE;
     private Vector3 hold;
     public bool canTrigger = false;
     private GameObject player;
@@ -14,7 +14,7 @@ public class Bird : MonoBehaviour
     {
         MoveTo = this.transform.GetChild(0).gameObject;
 
-        PressE = this.transform.GetChild(0).gameObject;
+        PressE = this.transform.GetChild(1).gameObject;
         PressE.SetActive(false);
         player = GameObject.Find("Paul");
         thisCollider= this.GetComponent<CircleCollider2D>();
