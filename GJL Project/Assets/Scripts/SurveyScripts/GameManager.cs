@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     //survey 4 bools
     public bool canBribe; //code 41
-    bool canHack; //code 42
+    public bool canHack; //code 42
     bool cactusHeight = true; //true makes cactus taller, false makes it wider; codes 43 and 44
     // reuse shouldThisQuestionShowUp variable?
 

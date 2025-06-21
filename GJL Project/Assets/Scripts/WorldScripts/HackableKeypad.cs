@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class GuardScripts : MonoBehaviour
+public class HackableKeypad : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public string CantBribetext;
-    public string Bribetext;
+    public string CantHacktext;
+    public string Hacktext;
     private GameObject MoveTo;
     public GameObject Canvas;
     private GameObject Player;
@@ -18,25 +18,25 @@ public class GuardScripts : MonoBehaviour
         PressE.SetActive(false);
         Canvas.SetActive(false);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        door= this.transform.GetChild(1).gameObject;
+        door = this.transform.GetChild(1).gameObject;
         door.GetComponent<DoorScript>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canTrigger && Input.GetKeyDown(KeyCode.E)&& !gameManager.canBribe)
+        if (canTrigger && Input.GetKeyDown(KeyCode.E) && !gameManager.canHack)
         {
             Canvas.SetActive(true);
-            Canvas.GetComponent<DialougeCanvas>().ChangeTxt(CantBribetext);
+            Canvas.GetComponent<DialougeCanvas>().ChangeTxt(CantHacktext);
             canTrigger = false;
             PressE?.SetActive(false);
         }
 
-        if (canTrigger && Input.GetKeyDown(KeyCode.E) && gameManager.canBribe)
+        if (canTrigger && Input.GetKeyDown(KeyCode.E) && gameManager.canHack)
         {
             Canvas.SetActive(true);
-            Canvas.GetComponent<DialougeCanvas>().ChangeTxt(Bribetext);
+            Canvas.GetComponent<DialougeCanvas>().ChangeTxt(Hacktext);
             canTrigger = false;
             PressE?.SetActive(false);
             door.GetComponent<DoorScript>().enabled = true;
@@ -61,5 +61,4 @@ public class GuardScripts : MonoBehaviour
             canTrigger = false;
         }
     }
-
 }
