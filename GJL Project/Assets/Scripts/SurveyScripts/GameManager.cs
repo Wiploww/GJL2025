@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,15 +11,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     Vector3 playerStartPos;
 
+    [SerializeField] GameObject pauseMenu;
+
     //survey screens
     [SerializeField] GameObject survey1;
     [SerializeField] GameObject survey2;
     [SerializeField] GameObject survey3;
     [SerializeField] GameObject survey4;
+    [SerializeField] GameObject surveyDoneButton;
     [SerializeField] GameObject sureAboutGoblinsQuestion;
     [SerializeField] GameObject theQuestionSurvey4;
     [SerializeField] GameObject funQuestionPos1;
     [SerializeField] GameObject funQuestionPos2;
+    [SerializeField] AudioClip yippee;
+    [SerializeField] AudioClip awMan;
 
     //boolean hell
     //corrresponding button codes are commented next to the buttons; any answers that have no real effect on the game have a button code of 0
@@ -45,14 +53,13 @@ public class GameManager : MonoBehaviour
     //layers
     [SerializeField] GameObject desks;
     [SerializeField] GameObject moreDesks;
+    [SerializeField] GameObject floorTiles;
     [SerializeField] GameObject animals;
-    [SerializeField] GameObject machines;
+    [SerializeField] GameObject machinesObjects;
     [SerializeField] GameObject goblins;
     [SerializeField] GameObject skullImage;
     [SerializeField] GameObject backflipImage;
-    [SerializeField] GameObject ogCactus;
-    [SerializeField] GameObject tallCactus;
-    [SerializeField] GameObject wideCactus;
+    [SerializeField] GameObject cactus;
     
     void Start()
     {
@@ -61,11 +68,14 @@ public class GameManager : MonoBehaviour
         canBribe = false;
         canHack = false;
 
+        pauseMenu.SetActive(false);
+
         //make sure all the things are set correctly
         survey1.SetActive(false);
         survey2.SetActive(false);
         survey3.SetActive(false);
         survey4.SetActive(false);
+        surveyDoneButton.SetActive(false);
         sureAboutGoblinsQuestion.SetActive(false);
         theQuestionSurvey4.SetActive(false);
         funQuestionPos1.SetActive(false);
@@ -73,23 +83,52 @@ public class GameManager : MonoBehaviour
 
         desks.gameObject.SetActive(true);
         moreDesks.gameObject.SetActive(false);
+        floorTiles.gameObject.SetActive(true);
         animals.gameObject.SetActive(false);
-        machines.gameObject.SetActive(false);
+        machinesObjects.gameObject.SetActive(false);
         goblins.gameObject.SetActive(false);
         skullImage.gameObject.SetActive(false);
         backflipImage.gameObject.SetActive(false);
-        ogCactus.gameObject.SetActive(false);
-        tallCactus.gameObject.SetActive(false);
-        wideCactus.gameObject.SetActive(false);
+        cactus.gameObject.SetActive(true);
+
+        floorTiles.GetComponent<Tilemap>().color = new Color(201, 201, 201, 255);
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(false);
+        player.GetComponent<CharacterMovement>().canMove = false;
+        player.GetComponent<Gun>().canShoot = false;
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        player.GetComponent<CharacterMovement>().canMove = true;
+        player.GetComponent<Gun>().canShoot = true;
+    }
+
+    public void QuitGame()
+    {
+        //is this needed for a web build?
     }
 
     public void BeginSurvey()
     {
+        surveyDoneButton.SetActive(true);
         switch (roundCounter)
         {
             case 1:
@@ -152,7 +191,6 @@ public class GameManager : MonoBehaviour
     void ResetGame()
     {
         player.transform.position = playerStartPos;
-        //reset anything else that needs to be reset
     }
 
     public void RecieveSignal(int code)
@@ -260,11 +298,13 @@ public class GameManager : MonoBehaviour
             case 51:
                 {
                     //play confetti effect :)
+                    AudioSource.PlayClipAtPoint(yippee, Camera.main.transform.position);
                     break;
                 }
             case 52:
                 {
                     //play sad horn effect :(
+                    AudioSource.PlayClipAtPoint(awMan, Camera.main.transform.position);
                     break;
                 }
             default:
@@ -292,10 +332,12 @@ public class GameManager : MonoBehaviour
                     if (floorColorChange)
                     {
                         //set floor color to chartreuse
+                        floorTiles.GetComponent<Tilemap>().color = new Color32(177, 188, 85, 252);
                     }
                     else
                     {
                         //set floor color to aubergine
+                        floorTiles.GetComponent<Tilemap>().color = new Color32(79, 51, 77, 252);
                     }
                     break;
                 }
@@ -307,7 +349,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        machines.gameObject.SetActive(true);
+                        machinesObjects.gameObject.SetActive(true);
                     }
                     if (addGoblins)
                     {
@@ -329,19 +371,18 @@ public class GameManager : MonoBehaviour
                     {
                         goblins.gameObject.SetActive(true);
                     }
+                    player.GetComponent<Gun>().canShoot = true;
                     break;
                 }
             case 4: //survey 4
                 {
                     if (cactusHeight)
                     {
-                        tallCactus.gameObject.SetActive(true);
-                        ogCactus.gameObject.SetActive(false);
+                        cactus.gameObject.transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
                     }
                     else
                     {
-                        wideCactus.gameObject.SetActive(true);
-                        ogCactus.gameObject.SetActive(false);
+                        cactus.gameObject.transform.localScale = new Vector3(2.0f, 1.0f, 1.0f);
                     }
                     break;
                 }
@@ -354,6 +395,7 @@ public class GameManager : MonoBehaviour
 
     void CloseSurvey()
     {
+        surveyDoneButton.SetActive(false);
         survey1.SetActive(false);
         survey2.SetActive(false);
         survey3.SetActive(false);
