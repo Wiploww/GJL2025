@@ -14,6 +14,8 @@ public class DoorScript : MonoBehaviour
     private GameObject Player;
     private GameObject PressE;
     private AudioSource AudioSource;
+
+    GameObject gameManager;
     void Start()
     {
         MoveTo= this.transform.GetChild(0).gameObject;
@@ -21,6 +23,8 @@ public class DoorScript : MonoBehaviour
         PressE=this.transform.GetChild(1).gameObject;
         PressE.SetActive(false);
         AudioSource=this.GetComponent<AudioSource>();
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
@@ -30,6 +34,7 @@ public class DoorScript : MonoBehaviour
         {
             Player.transform.position = MoveTo.transform.position;
             AudioSource.Play();
+            gameManager.GetComponent<GameManager>().DeactivateBridges();
         }
     }
 

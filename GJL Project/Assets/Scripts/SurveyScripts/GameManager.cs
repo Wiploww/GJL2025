@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject skullImage;
     [SerializeField] GameObject backflipImage;
     [SerializeField] GameObject cactus;
+    [SerializeField] GameObject targetBridges;
     
     void Start()
     {
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
         skullImage.gameObject.SetActive(false);
         backflipImage.gameObject.SetActive(false);
         cactus.gameObject.SetActive(true);
+        targetBridges.gameObject.SetActive(false);
 
         floorTiles.GetComponent<Tilemap>().color = new Color(201, 201, 201, 255);
     }
@@ -126,6 +128,16 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         //is this needed for a web build?
+    }
+
+    public void ActivateBridges()
+    {
+        targetBridges.SetActive(true);
+    }
+
+    public void DeactivateBridges()
+    {
+        targetBridges.SetActive(false);
     }
 
     public void BeginSurvey()
@@ -377,7 +389,7 @@ public class GameManager : MonoBehaviour
                     {
                         goblins.gameObject.SetActive(true);
                     }
-                    player.GetComponent<Gun>().canShoot = true;
+                    //player.GetComponent<Gun>().canShoot = true; rest in peace
                     break;
                 }
             case 4: //survey 4

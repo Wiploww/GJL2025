@@ -16,6 +16,7 @@ public class EasterEgg : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
             gameManager.gameObject.GetComponent<GameManager>().BeginSurvey();
+            this.gameObject.SetActive(false);
         }
     }
 }
