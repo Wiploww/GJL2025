@@ -2766,26 +2766,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundCounter: 0
   player: {fileID: 0}
+  pauseMenu: {fileID: 0}
   survey1: {fileID: 0}
   survey2: {fileID: 0}
   survey3: {fileID: 0}
   survey4: {fileID: 0}
+  surveyDoneButton: {fileID: 0}
   sureAboutGoblinsQuestion: {fileID: 0}
   theQuestionSurvey4: {fileID: 0}
   funQuestionPos1: {fileID: 0}
   funQuestionPos2: {fileID: 0}
+  yippee: {fileID: 0}
+  awMan: {fileID: 0}
   canBribe: 0
   canHack: 0
   desks: {fileID: 0}
   moreDesks: {fileID: 0}
+  floorTiles: {fileID: 0}
   animals: {fileID: 0}
-  machines: {fileID: 0}
+  machinesObjects: {fileID: 0}
   goblins: {fileID: 0}
   skullImage: {fileID: 0}
   backflipImage: {fileID: 0}
-  ogCactus: {fileID: 0}
-  tallCactus: {fileID: 0}
-  wideCactus: {fileID: 0}
+  cactus: {fileID: 0}
 --- !u!4 &1088021099
 Transform:
   m_ObjectHideFlags: 0
@@ -6229,6 +6232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paul
       objectReference: {fileID: 0}
+    - target: {fileID: 8601652164213836701, guid: 878198a14c28b2848b2b2d757559737d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2891703978992326180, guid: b3fd29994ba07b84e8cbd70e5f467772, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
