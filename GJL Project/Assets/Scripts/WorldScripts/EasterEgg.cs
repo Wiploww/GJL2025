@@ -3,18 +3,18 @@ using UnityEngine;
 public class EasterEgg : MonoBehaviour
 {
     [SerializeField] GameObject gameManager;
-    AudioSource audioSource;
+    [SerializeField] AudioClip clip;
 
     private void Start()
     {
-        audioSource = this.GetComponent<AudioSource>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            audioSource.Play();
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
             gameManager.gameObject.GetComponent<GameManager>().BeginSurvey();
         }
     }

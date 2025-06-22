@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject survey2;
     [SerializeField] GameObject survey3;
     [SerializeField] GameObject survey4;
+    [SerializeField] GameObject endScreen;
     [SerializeField] GameObject surveyDoneButton;
     [SerializeField] GameObject sureAboutGoblinsQuestion;
     [SerializeField] GameObject theQuestionSurvey4;
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
         survey2.SetActive(false);
         survey3.SetActive(false);
         survey4.SetActive(false);
+        endScreen.SetActive(false);
         surveyDoneButton.SetActive(false);
         sureAboutGoblinsQuestion.SetActive(false);
         theQuestionSurvey4.SetActive(false);
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(true);
         player.GetComponent<CharacterMovement>().canMove = false;
         player.GetComponent<Gun>().canShoot = false;
     }
@@ -129,6 +131,8 @@ public class GameManager : MonoBehaviour
     public void BeginSurvey()
     {
         surveyDoneButton.SetActive(true);
+        player.GetComponent<CharacterMovement>().canMove = false;
+        player.GetComponent<Gun>().canShoot = false;
         switch (roundCounter)
         {
             case 1:
@@ -170,8 +174,7 @@ public class GameManager : MonoBehaviour
                 }
             case 5:
                 {
-                    //if it's the final round, end the game
-                    ToMainMenu();
+                    endScreen.SetActive(true);
                     break;
                 }
             default:
@@ -192,6 +195,8 @@ public class GameManager : MonoBehaviour
     void ResetGame()
     {
         player.transform.position = playerStartPos;
+        player.GetComponent<CharacterMovement>().canMove = true;
+        player.GetComponent<Gun>().canShoot = true;
     }
 
     public void RecieveSignal(int code)
