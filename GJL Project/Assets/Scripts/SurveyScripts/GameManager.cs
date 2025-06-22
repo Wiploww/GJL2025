@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
             case 5:
                 {
                     //if it's the final round, end the game
+                    ToMainMenu();
                     break;
                 }
             default:
@@ -378,11 +379,11 @@ public class GameManager : MonoBehaviour
                 {
                     if (cactusHeight)
                     {
-                        cactus.gameObject.transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
+                        cactus.gameObject.transform.localScale = new Vector3(2.0f, 4.0f, 1.0f);
                     }
                     else
                     {
-                        cactus.gameObject.transform.localScale = new Vector3(2.0f, 1.0f, 1.0f);
+                        cactus.gameObject.transform.localScale = new Vector3(4.0f, 2.0f, 1.0f);
                     }
                     break;
                 }
