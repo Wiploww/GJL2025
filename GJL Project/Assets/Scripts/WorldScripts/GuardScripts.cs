@@ -12,8 +12,10 @@ public class GuardScripts : MonoBehaviour
     public bool canTrigger = false;
     private GameManager gameManager;
     public GameObject door;
+    private AudioSource AudioSource;
     void Start()
     {
+        AudioSource = this.GetComponent<AudioSource>();
         PressE = this.transform.GetChild(0).gameObject;
         PressE.SetActive(false);
         Canvas.SetActive(false);
@@ -35,6 +37,7 @@ public class GuardScripts : MonoBehaviour
 
         if (canTrigger && Input.GetKeyDown(KeyCode.E) && gameManager.canBribe)
         {
+            AudioSource.Play();
             Canvas.SetActive(true);
             Canvas.GetComponent<DialougeCanvas>().ChangeTxt(Bribetext);
             canTrigger = false;

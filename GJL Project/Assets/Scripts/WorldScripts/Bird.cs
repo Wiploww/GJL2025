@@ -10,10 +10,11 @@ public class Bird : MonoBehaviour
     public bool canTrigger = false;
     private GameObject player;
     private CircleCollider2D thisCollider;
+    private AudioSource AudioSource;
     void Start()
     {
         MoveTo = this.transform.GetChild(0).gameObject;
-
+        AudioSource= this.GetComponent<AudioSource>();
         PressE = this.transform.GetChild(1).gameObject;
         PressE.SetActive(false);
         player = GameObject.Find("Paul");
@@ -49,6 +50,7 @@ public class Bird : MonoBehaviour
 
     private void fly()
     {
+        AudioSource.Play();
         //use dotween to animate
         hold=this.transform.position;
 

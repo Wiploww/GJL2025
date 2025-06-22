@@ -13,12 +13,14 @@ public class DoorScript : MonoBehaviour
     public bool canTP=false;
     private GameObject Player;
     private GameObject PressE;
+    private AudioSource AudioSource;
     void Start()
     {
         MoveTo= this.transform.GetChild(0).gameObject;
         MoveToPos = MoveTo.transform.position;
         PressE=this.transform.GetChild(1).gameObject;
         PressE.SetActive(false);
+        AudioSource=this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class DoorScript : MonoBehaviour
         if (canTP && Input.GetKeyDown(KeyCode.E))
         {
             Player.transform.position = MoveTo.transform.position;
+            AudioSource.Play();
         }
     }
 

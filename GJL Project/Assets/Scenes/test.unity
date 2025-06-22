@@ -2776,8 +2776,8 @@ MonoBehaviour:
   theQuestionSurvey4: {fileID: 0}
   funQuestionPos1: {fileID: 0}
   funQuestionPos2: {fileID: 0}
-  yippee: {fileID: 0}
-  awMan: {fileID: 0}
+  yippee: {fileID: 8300000, guid: 42a84782dc1dc0a4cb98b1a55c4d63a0, type: 3}
+  awMan: {fileID: 8300000, guid: ec640a016e6e45d46b90242abb244a66, type: 3}
   canBribe: 0
   canHack: 0
   desks: {fileID: 0}

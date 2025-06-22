@@ -15,9 +15,11 @@ public class DeskScript :MonoBehaviour
 
     private CircleCollider2D CircleCollider2D;
     private BoxCollider2D BoxCollider2D;
+    private AudioSource AudioSource;
 
     void Start()
     {
+        AudioSource = this.GetComponent<AudioSource>();
         MoveTo = this.transform.GetChild(0).gameObject;
         MoveToPos = MoveTo.transform.position;
         PressE = this.transform.GetChild(1).gameObject;
@@ -29,6 +31,7 @@ public class DeskScript :MonoBehaviour
     {
         if (canTP && Input.GetKeyDown(KeyCode.E))
         {
+            AudioSource.Play();
             Player.transform.position = MoveTo.transform.position;
         }
     }
