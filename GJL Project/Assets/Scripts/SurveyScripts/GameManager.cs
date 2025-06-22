@@ -117,14 +117,12 @@ public class GameManager : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         player.GetComponent<CharacterMovement>().canMove = false;
-        player.GetComponent<Gun>().canShoot = false;
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
         player.GetComponent<CharacterMovement>().canMove = true;
-        player.GetComponent<Gun>().canShoot = true;
     }
 
     public void QuitGame()
@@ -146,7 +144,6 @@ public class GameManager : MonoBehaviour
     {
         surveyDoneButton.SetActive(true);
         player.GetComponent<CharacterMovement>().canMove = false;
-        player.GetComponent<Gun>().canShoot = false;
         switch (roundCounter)
         {
             case 1:
@@ -210,7 +207,6 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = playerStartPos;
         player.GetComponent<CharacterMovement>().canMove = true;
-        player.GetComponent<Gun>().canShoot = true;
     }
 
     public void RecieveSignal(int code)
