@@ -14,7 +14,7 @@ public class BridgeMachine : MonoBehaviour
     {
         PressE = this.transform.GetChild(0).gameObject;
         PressE.SetActive(false);
-        bridge = this.transform.GetChild(1).gameObject;
+       // bridge = this.transform.GetChild(1).gameObject;
         bridge.SetActive(false);
         AudioSource=this.GetComponent<AudioSource>();
     }
