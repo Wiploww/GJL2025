@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4978844475886312769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4539336006338004396}
+  - component: {fileID: 1959535924606458168}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4539336006338004396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978844475886312769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.920078, y: -6.0615563, z: -0.017540907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959535924606458168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978844475886312769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9cd00fee49f1443a6de5bab62ad193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundCounter: 0
+  player: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  survey1: {fileID: 0}
+  survey2: {fileID: 0}
+  survey3: {fileID: 0}
+  survey4: {fileID: 0}
+  surveyDoneButton: {fileID: 0}
+  sureAboutGoblinsQuestion: {fileID: 0}
+  theQuestionSurvey4: {fileID: 0}
+  funQuestionPos1: {fileID: 0}
+  funQuestionPos2: {fileID: 0}
+  yippee: {fileID: 8300000, guid: 42a84782dc1dc0a4cb98b1a55c4d63a0, type: 3}
+  awMan: {fileID: 8300000, guid: ec640a016e6e45d46b90242abb244a66, type: 3}
+  canBribe: 0
+  canHack: 0
+  desks: {fileID: 0}
+  moreDesks: {fileID: 0}
+  floorTiles: {fileID: 0}
+  animals: {fileID: 0}
+  machinesObjects: {fileID: 0}
+  goblins: {fileID: 0}
+  skullImage: {fileID: 0}
+  backflipImage: {fileID: 0}
+  cactus: {fileID: 0}
