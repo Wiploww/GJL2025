@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu;
 
+
     //survey screens
     [SerializeField] GameObject survey1;
     [SerializeField] GameObject survey2;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip yippee;
     [SerializeField] AudioClip awMan;
 
+    public GameObject baseDesks;
     //boolean hell
     //corrresponding button codes are commented next to the buttons; any answers that have no real effect on the game have a button code of 0
     //survey 1 bools
@@ -219,6 +221,7 @@ public class GameManager : MonoBehaviour
             case 11:
                 {
                     addMoreDesks = true;
+                    baseDesks.SetActive(false);
                     break;
                 }
             case 12:
