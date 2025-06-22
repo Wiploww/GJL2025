@@ -20,7 +20,7 @@ public class GuardScripts : MonoBehaviour
         PressE.SetActive(false);
         Canvas.SetActive(false);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        door= this.transform.GetChild(1).gameObject;
+        //door= this.transform.GetChild(1).gameObject;
         door.GetComponent<DoorScript>().enabled = false;
     }
 
